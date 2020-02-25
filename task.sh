@@ -35,9 +35,9 @@ case "$item" in
 		;;
 	f|F|font)
 		open https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip
-		pushd ~/Downloads
-		unzip JetBrainsMono*.zip && mv *.tiff ~/Library/Fonts/
-		rm -rf JetBrainsMono* && popd && echo "Fonts installed"
+		pushd ~/Downloads && unzip JetBrainsMono*.zip
+		mv JetBrainsMono*/ttf/* ~/Library/Fonts/ && rm -rf JetBrainsMono*
+		popd && echo "Fonts installed"
 		;;
 	v|V|valgrind)
 		brew update && brew install valgrind
