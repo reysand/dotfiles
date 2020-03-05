@@ -35,8 +35,9 @@ case "$item" in
 		;;
 	f|F|font)
 		open https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip
-		pushd ~/Downloads && unzip JetBrainsMono*.zip
-		mv JetBrainsMono*/ttf/* ~/Library/Fonts/ && rm -rf JetBrainsMono*
+		sleep 2.1
+		pushd ~/Downloads && unzip JetBrainsMono*.zip && mkdir ~/Library/Fonts
+		mv -v JetBrainsMono*/ttf/* ~/Library/Fonts/ && rm -rf JetBrainsMono*
 		popd && echo "Fonts installed"
 		;;
 	v|V|valgrind)
