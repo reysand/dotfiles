@@ -18,8 +18,8 @@ echo "======================================"
 if [[ $1 == "" ]]; then
 	read -p "Your choose:-" item
 elif [[ $1 && $2 ]]; then
-	echo "Example: ./task.sh"
-	echo "         ./task.sh <argument>"
+	echo "usage: ./task.sh"
+	echo "       ./task.sh <argument>"
 	exit 0
 else
 	item="$1"
