@@ -109,7 +109,7 @@ let g:syntastic_check_on_wq = 0
 " ==============================================================================
 augroup School42_Header
 	autocmd!
-	autocmd BufNewFile * Stdheader | endif
+	autocmd BufNewFile * Stdheader
 augroup END
 
 " ==============================================================================
