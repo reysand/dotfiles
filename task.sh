@@ -1,6 +1,7 @@
 #!/bin/sh
 clear
 echo "Tasks:"
+echo "--Install-Oh-My-Zsh---(...z|Z|zsh....)"
 echo "--Install-brew--------(...b|B|brew...)"
 echo "--Install-fonts-------(..f|F|fonts...)"
 echo "--Install-valgrind----(.v|V|valgrind.)"
@@ -27,6 +28,10 @@ else
 fi
 
 case "$item" in
+	z|Z|zsh)
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		echo "Oh-My-Zsh installed"
+		;;
 	b|B|brew)
 		rm -rf $HOME/.brew
 		git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew

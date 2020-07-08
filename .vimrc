@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugins')
 	Plug 'vim-airline/vim-airline-themes'	" Status line themes
 	Plug 'preservim/nerdtree'				" File system explorer
 	Plug 'scrooloose/syntastic'				" Syntax check
-	Plug 'valloric/youcompleteme'			" Code-completion
 	Plug 'pbondoer/vim-42header'			" School 42 header
 call plug#end()
 
