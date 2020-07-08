@@ -7,7 +7,6 @@ echo "--Install-fonts-------(..f|F|fonts...)"
 echo "--Install-valgrind----(.v|V|valgrind.)"
 echo "--------------------------------------"
 echo "--Color-Norminette----(n|N|norminette)"
-echo "--Update-vim-plugins--(.p|P|plugins..)"
 echo "--------------------------------------"
 echo "--Clean---------------(..c|C|clean...)"
 echo "--Memory--------------(..m|M|memory..)"
@@ -33,10 +32,8 @@ case "$item" in
 		echo "Oh-My-Zsh installed"
 		;;
 	b|B|brew)
-		rm -rf $HOME/.brew
-		git clone --depth=1 https://github.com/Homebrew/brew $HOME/.brew
-		echo 'export PATH=$HOME/.brew/bin:$PATH' >> $HOME/.zshrc
-		source $HOME/.zshrc && brew update && echo "Brew installed"
+		curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
+		echo "Brew installed"
 		;;
 	f|F|font)
 		open https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip
@@ -46,16 +43,12 @@ case "$item" in
 		popd && echo "Fonts installed"
 		;;
 	v|V|valgrind)
-		brew update && brew install valgrind
-		alias valgrind="~/.brew/bin/valgrind" && echo "Valgrind installed"
+		brew install --HEAD https://raw.githubusercontent.com/LouisBrunner/valgrind-macos/master/valgrind.rb
+		echo "Valgrind installed"
 		;;
 	n|N|norminette)
 		sh -c "$(curl -s https://bitbucket.org/liftchampion/colorised-norminette/raw/b4272f2c2dac52b1da721ae658815c43f64e5cb2/colorised_norm_install_installer.sh)"
 		rm -rf ~/.*norm_script && echo "Norminette colorised"
-		;;
-	p|P|pligins)
-		echo :PlugInstall | vim && echo :PlugUpgrade | vim
-		echo :PlugUpdate | vim && echo :PlugClean | vim
 		;;
 	c|C|clean)
 		find ~/ -name ".DS_Store" -print -delete 2> /dev/null
