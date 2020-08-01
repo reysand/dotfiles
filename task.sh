@@ -7,6 +7,7 @@ echo "--Install-fonts-------(..f|F|fonts...)"
 echo "--Install-valgrind----(.v|V|valgrind.)"
 echo "--------------------------------------"
 echo "--Color-Norminette----(n|N|norminette)"
+echo "--Iterm2-italic-------(..i|I|iterm...)"
 echo "--------------------------------------"
 echo "--Clean---------------(..c|C|clean...)"
 echo "--Memory--------------(..m|M|memory..)"
@@ -49,6 +50,11 @@ case "$item" in
 	n|N|norminette)
 		sh -c "$(curl -s https://bitbucket.org/liftchampion/colorised-norminette/raw/b4272f2c2dac52b1da721ae658815c43f64e5cb2/colorised_norm_install_installer.sh)"
 		rm -rf ~/.*norm_script && echo "Norminette colorised"
+		;;
+	i|I|iterm)
+		{ infocmp -1 xterm-256color ; echo "\tsitm=\\E[3m,\n\tritm=\\E[23m,"; } > /tmp/xterm-256color.terminfo
+tic /tmp/xterm-256color.terminfo
+		echo "Italic enabled in iterm"
 		;;
 	c|C|clean)
 		find ~/ -name ".DS_Store" -print -delete 2> /dev/null
