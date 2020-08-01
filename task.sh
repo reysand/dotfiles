@@ -36,10 +36,10 @@ case "$item" in
 		echo "Brew installed"
 		;;
 	f|F|font)
-		open https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip
+		open https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip
 		sleep 2.1
 		pushd ~/Downloads && unzip JetBrainsMono*.zip && mkdir ~/Library/Fonts
-		mv -v JetBrainsMono*/ttf/* ~/Library/Fonts/ && rm -rf JetBrainsMono*
+		mv -v JetBrainsMono*/ttf/Variable/* ~/Library/Fonts/ && rm -rf JetBrainsMono*
 		popd && echo "Fonts installed"
 		;;
 	v|V|valgrind)
