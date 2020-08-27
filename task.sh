@@ -5,6 +5,7 @@ echo "--Install-Oh-My-Zsh---(...z|Z|zsh....)"
 echo "--Install-brew--------(...b|B|brew...)"
 echo "--Install-fonts-------(..f|F|fonts...)"
 echo "--Install-valgrind----(.v|V|valgrind.)"
+echo "--Install-gpg---------(...g|G|gpg....)"
 echo "--------------------------------------"
 echo "--Color-Norminette----(n|N|norminette)"
 echo "--Iterm2-italic-------(..i|I|iterm...)"
@@ -46,6 +47,11 @@ case "$item" in
 	v|V|valgrind)
 		brew install --HEAD https://raw.githubusercontent.com/LouisBrunner/valgrind-macos/master/valgrind.rb
 		echo "Valgrind installed"
+		;;
+	g|G|gpg)
+		brew install gpg && gpg --full-generate-key
+		gpg --list-secret-keys --keyid-format LONG
+		echo "gpg installed"
 		;;
 	n|N|norminette)
 		sh -c "$(curl -s https://bitbucket.org/liftchampion/colorised-norminette/raw/b4272f2c2dac52b1da721ae658815c43f64e5cb2/colorised_norm_install_installer.sh)"
