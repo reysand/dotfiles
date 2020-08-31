@@ -32,6 +32,9 @@ case "$item" in
 	z|Z|zsh)
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 		echo "Oh-My-Zsh installed"
+		echo "See more:"
+		echo " * https://github.com/zsh-users/zsh-autosuggestions\t(plugin)"
+		echo " * https://github.com/tylerreckart/hyperzsh\t\t(theme)"
 		;;
 	b|B|brew)
 		curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
