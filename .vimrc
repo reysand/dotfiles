@@ -17,6 +17,10 @@ call plug#begin('~/.vim/plugins')
 	Plug 'preservim/nerdtree'				" File system explorer
 	Plug 'scrooloose/syntastic'				" Syntax check
 	Plug 'pbondoer/vim-42header'			" School 42 header
+	Plug 'xavierd/clang_complete'			" Clang autocomplete
+	Plug 'severin-lemaignan/vim-minimap'	" Mini-map
+	Plug 'cohama/lexima.vim'				" Auto close parentheses
+	Plug 'vim-jp/vim-cpp'					" C/C++ syntax
 call plug#end()
 
 " ==============================================================================
@@ -106,6 +110,22 @@ function! SyntasticCheckHook(errors)
         let g:syntastic_loc_list_height = min([len(a:errors), 10])
     endif
 endfunction
+
+" ==============================================================================
+"                                 Clang-complete
+" ==============================================================================
+let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+let g:clang_user_options='|| exit 0'
+let g:clang_complete_auto = 1
+let g:clang_complete_copen = 1
+set completeopt-=preview
+
+" ==============================================================================
+"                             Auto close parentheses
+" ==============================================================================
+let g:lexima_enable_basic_rules = 1
+let g:lexima_enable_newline_rules = 1
+let g:lexima_enable_endwise_rules = 1
 
 " ==============================================================================
 "                                School 42 Header
