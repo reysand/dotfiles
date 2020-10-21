@@ -15,12 +15,8 @@ call plug#begin('~/.vim/plugins')
 	Plug 'vim-airline/vim-airline'			" Status line
 	Plug 'vim-airline/vim-airline-themes'	" Status line themes
 	Plug 'preservim/nerdtree'				" File system explorer
-	Plug 'scrooloose/syntastic'				" Syntax check
 	Plug 'pbondoer/vim-42header'			" School 42 header
-	Plug 'xavierd/clang_complete'			" Clang autocomplete
-	Plug 'severin-lemaignan/vim-minimap'	" Mini-map
 	Plug 'cohama/lexima.vim'				" Auto close parentheses
-	Plug 'vim-jp/vim-cpp'					" C/C++ syntax
 call plug#end()
 
 " ==============================================================================
@@ -73,7 +69,7 @@ let g:gruvbox_contrast_dark='hard'			" Dark mode contrast
 let g:gruvbox_italic=1						" Enable italic text
 let g:gruvbox_italicize_strings=1			" Enable italic for comments
 set background=dark							" Change background color
-augroup spell_colors
+augroup spell_colors						" Change errors highlight
 	autocmd!
 	autocmd ColorScheme * highlight SpellBad
 		\ cterm=Underline,bold
@@ -94,31 +90,6 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) &&
 	\ !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene |
 	\ exe 'cd '.argv()[0] | endif
-
-" ==============================================================================
-"                                  Syntax Check
-" ==============================================================================
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-function! SyntasticCheckHook(errors)
-    if !empty(a:errors)
-        let g:syntastic_loc_list_height = min([len(a:errors), 10])
-    endif
-endfunction
-
-" ==============================================================================
-"                                 Clang-complete
-" ==============================================================================
-let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-let g:clang_user_options='|| exit 0'
-let g:clang_complete_auto = 1
-let g:clang_complete_copen = 1
-set completeopt-=preview
 
 " ==============================================================================
 "                             Auto close parentheses
