@@ -94,14 +94,13 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) &&
 " ==============================================================================
 "                             Auto close parentheses
 " ==============================================================================
-let g:lexima_enable_basic_rules = 1
-let g:lexima_enable_newline_rules = 1
-let g:lexima_enable_endwise_rules = 1
+let g:lexima_enable_basic_rules = 1			" Basic rules
+let g:lexima_enable_newline_rules = 1		" New line rules
 
 " ==============================================================================
 "                                School 42 Header
 " ==============================================================================
-augroup School42_Header
+augroup School42_Header						" Add header to all new files
 	autocmd!
 	autocmd BufNewFile * Stdheader
 augroup END
@@ -109,7 +108,7 @@ augroup END
 " ==============================================================================
 "                               Scripts Executable
 " ==============================================================================
-function ChangeMode()
+function ChangeMode()						" Auto change of script permissions
 	if getline(1) =~ "^#!"
 		if getline(1) =~ "bin/"
 			silent !chmod a+x <afile>
