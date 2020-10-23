@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugins')
 	Plug 'preservim/nerdtree'				" File system explorer
 	Plug 'pbondoer/vim-42header'			" School 42 header
 	Plug 'cohama/lexima.vim'				" Auto close parentheses
+	Plug 'bfrg/vim-cpp-modern'				" C/C++ syntax
 call plug#end()
 
 " ==============================================================================
