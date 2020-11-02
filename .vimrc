@@ -101,9 +101,9 @@ let g:lexima_enable_newline_rules = 1		" New line rules
 " ==============================================================================
 "                                School 42 Header
 " ==============================================================================
-augroup School42_Header						" Add header to all new files
+augroup School42_Header						" Add header to new files
 	autocmd!
-	autocmd BufNewFile * Stdheader
+	autocmd BufNewFile *.{c,h},Makefile Stdheader
 augroup END
 
 " ==============================================================================
@@ -116,4 +116,4 @@ function ChangeMode()						" Auto change of script permissions
 		endif
 	endif
 endfunction
-au BufWritePost * call ChangeMode()
+autocmd BufWritePost * call ChangeMode()
