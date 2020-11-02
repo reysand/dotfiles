@@ -1,5 +1,5 @@
 " ==============================================================================
-"                           Plugin Manager  (vim-plug)
+"                           Plugin Manager (vim-plug)
 " ==============================================================================
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -8,7 +8,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " ==============================================================================
-"                                  VIM  Plugins
+"                                  VIM Plugins
 " ==============================================================================
 call plug#begin('~/.vim/plugins')
 	Plug 'morhetz/gruvbox'					" Color scheme
@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugins')
 call plug#end()
 
 " ==============================================================================
-"                             General  Configuration
+"                             General Configuration
 " ==============================================================================
 set cursorline								" Highlight current line
 set cursorcolumn							" Highlight current column
@@ -40,7 +40,7 @@ set tabstop=4								" Column count in tab character
 syntax on									" Syntax highlighting
 
 " ==============================================================================
-"                                  VIM  Mapping
+"                                  VIM Mapping
 " ==============================================================================
 											" Switch to left split
 map <C-H>		<C-W><C-H>
@@ -79,7 +79,7 @@ augroup END
 colorscheme gruvbox							" Setup color scheme
 
 " ==============================================================================
-"                                  Status  Line
+"                                  Status Line
 " ==============================================================================
 let g:airline_theme='deus'					" Setup Status line theme
 let g:airline#extensions#tabline#enabled=1	" Enable tab line
@@ -99,7 +99,7 @@ let g:lexima_enable_basic_rules = 1			" Basic rules
 let g:lexima_enable_newline_rules = 1		" New line rules
 
 " ==============================================================================
-"                                School 42 Header
+"                                   42 Header
 " ==============================================================================
 augroup School42_Header						" Add header to new files
 	autocmd!
