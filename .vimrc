@@ -33,12 +33,17 @@ set listchars+=extends:›					" Set extends character
 set listchars+=precedes:‹					" Set precedes character
 set listchars+=nbsp:·						" Set non-breakable space character
 set listchars+=trail:·						" Set trailing space character
+set mouse=a									" Enable mouse use in all modes
 set noswapfile								" Turn off .swp file
 set number									" Display line numbering
 set relativenumber							" Display relative line numbering
 set spell spelllang=en_us					" Set spell check
 set tabstop=4								" Column count in tab character
 syntax on									" Syntax highlighting
+augroup comment_style						" Set comment style
+	autocmd!
+	autocmd BufNewFile,BufRead *.c :set comments=sl:/*,mb:**,elx:*/
+augroup END
 
 " ==============================================================================
 "                                  VIM Mapping
@@ -118,6 +123,7 @@ let g:airline#extensions#tabline#enabled=1	" Enable tab line
 " ==============================================================================
 "                              File System Explorer
 " ==============================================================================
+let NERDTreeMinimalUI=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) &&
 	\ !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene |
