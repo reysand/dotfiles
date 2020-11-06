@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugins')
 	Plug 'pbondoer/vim-42header'			" School 42 header
 	Plug 'cohama/lexima.vim'				" Auto close parentheses
 	Plug 'bfrg/vim-cpp-modern'				" C/C++ syntax
+	Plug 'airblade/vim-gitgutter'			" Vim diff
 call plug#end()
 
 " ==============================================================================
@@ -79,9 +80,34 @@ augroup END
 colorscheme gruvbox							" Setup color scheme
 
 " ==============================================================================
+"                                  Git Gutter
+" ==============================================================================
+let g:gitgutter_max_signs=-1				" Removed limit of count signs
+let g:gitgutter_sign_added='+'				" Changed sign_added
+let g:gitgutter_sign_modified='>'			" Changed sign_modified
+let g:gitgutter_sign_removed='-'			" Changed sign_removed
+let g:gitgutter_sign_removed_first_line='^'	" Changed sign_removed_first_line
+let g:gitgutter_sign_modified_removed='<'	" Changed sign_modified_removed
+set signcolumn=yes							" Always have the sign column
+set updatetime=250							" Update sign column
+											" Change background to sign column
+highlight SignColumn ctermbg=bg
+											" Change colors to sign_added
+highlight GitGutterAdd ctermfg=2
+											" Change colors to sign_modified
+highlight GitGutterChange ctermfg=3
+											" Change colors to sign_removed
+highlight GitGutterDelete ctermfg=1
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}				" Added git status to status line
+
+" ==============================================================================
 "                                  C/C++ Syntax
 " ==============================================================================
-let g:cpp_member_highlight=1
+let g:cpp_member_highlight=1				" Highlight structure member
 
 " ==============================================================================
 "                                  Status Line
