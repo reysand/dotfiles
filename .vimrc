@@ -44,7 +44,7 @@ set splitright								" Open new splits on the right
 set tabstop=4								" Column count in tab character
 syntax on									" Syntax highlighting
 augroup comment_style						" Set comment style for *.c files
-	autocmd! BufNewFile,BufRead *.c :set comments=sl:/*,mb:**,elx:*/
+	autocmd! BufNewFile,BufRead *.{c,h} :set comments=sl:/*,mb:**,elx:*/
 augroup END
 
 " ==============================================================================
