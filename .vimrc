@@ -40,6 +40,7 @@ set noswapfile								" Turn off .swp file
 set number									" Display line numbering
 set relativenumber							" Display relative line numbering
 set shiftwidth=4							" Number of spaces for autoindent
+set showcmd									" Show (partial) command
 set splitright								" Open new splits on the right
 set tabstop=4								" Column count in tab character
 syntax on									" Syntax highlighting
@@ -109,7 +110,7 @@ let g:syntastic_auto_loc_list=1				" Auto closing when no errors occur
 let dirs=['../include', '../libft/include']	" Include dirs
 let g:syntastic_c_include_dirs=dirs			" Set include dirs
 let g:syntastic_c_compiler_options='-ansi'	" ANSI C Standard
-let g:syntastic_check_on_open=0				" Enable check on open
+let g:syntastic_check_on_open=1				" Enable check on open
 let g:syntastic_check_on_wq=0				" Disable check on exit
 let g:syntastic_enable_highlighting=1		" Highlight errors
 let g:syntastic_enable_signs=0				" Disable signs
