@@ -39,6 +39,11 @@ case "$item" in
 	b|B|brew)
 		curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
 		echo "Brew installed"
+		echo "See more:"
+		echo " * bat"
+		echo " * gh"
+		echo " * cmatrix"
+		echo " * vifm"
 		;;
 	f|F|font)
 		open https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip
@@ -68,7 +73,11 @@ tic /tmp/xterm-256color.terminfo
 	c|C|clean)
 		find ~/ -name ".DS_Store" -print -delete 2> /dev/null
 		find ~/ -name "**.42_cache_bak**" -print -delete 2> /dev/null
-		rm -rf ~/Library/Caches/* && rm -rf ~/.zcompdump* && rm -rf .Trash/*
+		rm -rf ~/Library/Caches/ && rm -rf ~/.zcompdump* && rm -rf .Trash/*
+		rm -rf ~/Library/*42_cache*
+		rm -rf ~/Library/Application\ Support/Slack/Service\ Worker/CacheStorage/
+		rm -rf ~/Library/Application\ Support/Slack/Cache/
+		rm -rf ~/Library/Application\ Support/Slack/Code\ Cache/
 		brew cleanup && echo "Clean Complete"
 		;;
 	m|M|memory)
