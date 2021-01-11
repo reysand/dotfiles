@@ -53,7 +53,8 @@ case "$item" in
 		popd && echo "Fonts installed"
 		;;
 	v|V|valgrind)
-		brew install --HEAD https://raw.githubusercontent.com/LouisBrunner/valgrind-macos/master/valgrind.rb
+		brew tap LouisBrunner/valgrind
+		brew install --HEAD LouisBrunner/valgrind/valgrind
 		echo "Valgrind installed"
 		;;
 	g|G|gpg)
