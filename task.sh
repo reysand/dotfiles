@@ -2,6 +2,8 @@
 clear
 echo "Tasks:"
 echo "--Install-Oh-My-Zsh---(...z|Z|zsh....)"
+echo "--Autosuggestions-Zsh-(...a|A|auto...)"
+echo "--Theme-Zsh-----------(..t|T|theme...)"
 echo "--Install-brew--------(...b|B|brew...)"
 echo "--Install-fonts-------(..f|F|fonts...)"
 echo "--Install-valgrind----(.v|V|valgrind.)"
@@ -32,9 +34,16 @@ case "$item" in
 	z|Z|zsh)
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 		echo "Oh-My-Zsh installed"
-		echo "See more:"
-		echo " * https://github.com/zsh-users/zsh-autosuggestions\t(plugin)"
-		echo " * https://github.com/tylerreckart/hyperzsh\t\t(theme)"
+		;;
+	a|A|auto)
+		git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+		echo "Add to ~/.zshrc 'plugin(zsh-autosuggestions)'"
+		;;
+	t|T|theme)
+
+		brew install wget
+		wget -O $ZSH_CUSTOM/themes/hyperzsh.zsh-theme https://raw.githubusercontent.com/tylerreckart/hyperzsh/master/hyperzsh.zsh-theme
+		echo "Change in ~/.zshrc to 'ZSH_THEME=\"hyperzsh\"'"
 		;;
 	b|B|brew)
 		curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
