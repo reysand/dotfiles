@@ -1,5 +1,5 @@
 # dotfiles
-Automated Configuration, Preferences and Software Installation
+Automated Configuration, Preferences and Software Installation (School 21)
 
 ## iTerm2 (iterm.json - Profile)
 For better experience use these settings:
