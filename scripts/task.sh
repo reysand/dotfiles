@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 clear
 echo "Tasks:"
 echo "--Install-Oh-My-Zsh---(...z|Z|zsh....)"
@@ -40,10 +40,10 @@ case "$item" in
 		echo "Add to ~/.zshrc 'plugin(zsh-autosuggestions)'"
 		;;
 	t|T|theme)
-
 		brew install wget
 		wget -O $ZSH_CUSTOM/themes/hyperzsh.zsh-theme https://raw.githubusercontent.com/tylerreckart/hyperzsh/master/hyperzsh.zsh-theme
-		echo "Change in ~/.zshrc to 'ZSH_THEME=\"hyperzsh\"'"
+		brew uninstall wget pkg-config $(brew deps wget)
+		echo Change in ~/.zshrc to \'ZSH_THEME=\"hyperzsh\"\'
 		;;
 	b|B|brew)
 		curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
@@ -119,8 +119,7 @@ case "$item" in
 		;;
 	*)
 		echo "Wrong argument: $1"
-		sleep 1
-		sh ~/task.sh
+		;;
 esac
 sleep 4.2
 clear
