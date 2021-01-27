@@ -2,7 +2,7 @@
 GREEN='\033[32m'
 WHITE='\033[37m'
 clear
-read -p "$(echo -e "$GREEN# Write your name: ")" name
+read -p "$(echo "$GREEN# Write your name: ")" name
 clear
 
 TEXT="Wake up, $name..."
