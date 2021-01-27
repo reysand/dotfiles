@@ -69,6 +69,9 @@ case "$item" in
 	g|G|gpg)
 		brew install gpg && gpg --full-generate-key
 		gpg --list-secret-keys --keyid-format LONG
+		git config --global gpg.program gpg
+		git config --global commit.gpgsign true
+		echo "git config --global user.signingkey <YOUR_SIGNING_KEY)>"
 		echo "gpg installed"
 		;;
 	n|N|norminette)
