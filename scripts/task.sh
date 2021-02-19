@@ -32,11 +32,14 @@ fi
 
 case "$item" in
 	z|Z|zsh)
-		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		git clone https://github.com/ohmyzsh/ohmyzsh.git ~/ohmyzsh
+		sh ~/ohmyzsh/tools/install.sh
+		rm -rf ~/ohmyzsh
 		echo "Oh-My-Zsh installed"
 		;;
 	a|A|auto)
-		git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+		git clone https://github.com/zsh-users/zsh-autosuggestions\
+			~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 		echo "Add to ~/.zshrc 'plugin(zsh-autosuggestions)'"
 		;;
 	t|T|theme)
@@ -58,8 +61,8 @@ case "$item" in
 		open https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip
 		sleep 2.1
 		pushd ~/Downloads && unzip JetBrainsMono*.zip && mkdir ~/Library/Fonts
-		mv -v JetBrainsMono*/ttf/Variable/* ~/Library/Fonts/ && rm -rf JetBrainsMono*
-		popd && echo "Fonts installed"
+		mv -v JetBrainsMono*/ttf/Variable/* ~/Library/Fonts/
+		rm -rf JetBrainsMono* && popd && echo "Fonts installed"
 		;;
 	v|V|valgrind)
 		brew tap LouisBrunner/valgrind
@@ -88,7 +91,7 @@ case "$item" in
 		find ~/ -name "**.42_cache_bak**" -print -delete 2> /dev/null
 		rm -rf ~/Library/Caches/ && rm -rf ~/.zcompdump* && rm -rf .Trash/*
 		rm -rf ~/Library/*42_cache*
-		rm -rf ~/Library/Application\ Support/Slack/Service\ Worker/CacheStorage/
+		rm -rf ~/Library/Application\ Support/Slack/Service\ Worker/CacheStorage
 		rm -rf ~/Library/Application\ Support/Slack/Cache/
 		rm -rf ~/Library/Application\ Support/Slack/Code\ Cache/
 		brew cleanup && echo "Clean Complete"

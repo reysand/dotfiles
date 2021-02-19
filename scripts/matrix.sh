@@ -1,11 +1,15 @@
 #!/bin/bash
 GREEN='\033[32m'
 WHITE='\033[37m'
-clear
-read -p "$(echo "$GREEN# Write your name: ")" name
+if [[ $1 == "" ]]; then
+	username="$(whoami)"
+else
+	username="$1"
+fi
+terminal="$(who -T | awk '{print $3}' | grep pts)"
 clear
 
-TEXT="Wake up, $name..."
+TEXT="Wake up, $username..."
 while IFS= read -n1 c; do
 	printf "$GREEN%s" "$c"
 	sleep 0.21
@@ -54,9 +58,12 @@ printf "$WHITE
 
 sleep 2.1
 clear
-username="$(whoami)"
-terminal="$(who -T | awk '{print $3}' | grep pts)"
-echo "Knock, Knock, $name." | write $username $terminal
-brew install cmatrix
-cmatrix
+echo "Knock, Knock, $username." | write $username $terminal
+if [[ $(uname -s) == "Darwin" ]]; then
+	brew install cmatrix
+	cmatrix
+elif [[ $(uname -s) == "Linux" ]]; then
+	apt-get install cmatrix
+	cmatrix
+fi
 clear
