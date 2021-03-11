@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugins')
 	Plug 'vim-airline/vim-airline-themes'	" Status line themes
 	Plug 'bfrg/vim-cpp-modern'				" C/C++ syntax
 	Plug 'airblade/vim-gitgutter'			" Vim diff
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " ==============================================================================
@@ -71,6 +72,8 @@ map <S-Right>	<C-W><C->>
 map <F7>		gg=G
 											" Open NERDTree
 map <F8>		:NERDTreeToggle<CR>
+											" Open Fuzzy Finder
+map <F9>		:FZF --preview cat\ {}<CR>
 
 " ==============================================================================
 "                                  Color Scheme
@@ -86,6 +89,23 @@ colorscheme gruvbox							" Setup color scheme
 " ==============================================================================
 let g:lexima_enable_basic_rules = 1			" Basic rules
 let g:lexima_enable_newline_rules = 1		" New line rules
+
+" ==============================================================================
+"                                  Fuzzy Finder
+" ==============================================================================
+let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
+					\'bg':      ['bg', 'Normal'],
+					\'hl':      ['fg', 'Comment'],
+					\'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+					\'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+					\'hl+':     ['fg', 'Statement'],
+					\'info':    ['fg', 'PreProc'],
+					\'border':  ['fg', 'Ignore'],
+					\'prompt':  ['fg', 'Conditional'],
+					\'pointer': ['fg', 'Exception'],
+					\'marker':  ['fg', 'Keyword'],
+					\'spinner': ['fg', 'Label'],
+					\'header':  ['fg', 'Comment'] }
 
 " ==============================================================================
 "                              File System Explorer
@@ -106,8 +126,11 @@ let g:rainbow#blacklist = [248, 250]		" Exclude colors
 " ==============================================================================
 "                                   Syntastic
 " ==============================================================================
-let g:syntastic_auto_loc_list=1				" Auto closing when no errors occur
+"let g:syntastic_auto_loc_list=1				" Auto closing when no errors occur
+let dirs=['../../include', '../../libft/include']	" Include dirs
 let dirs=['../include', '../libft/include']	" Include dirs
+let dirs+=['include', 'libft/include']		" Include dirs
+let dirs+=['tests/include']					" Include test dirs
 let g:syntastic_c_include_dirs=dirs			" Set include dirs
 let g:syntastic_c_compiler_options='-ansi'	" ANSI C Standard
 let g:syntastic_check_on_open=1				" Enable check on open
@@ -124,7 +147,7 @@ endfunction
 "                                   42 Header
 " ==============================================================================
 augroup school42_header						" Add header to new files
-	autocmd! BufNewFile *.{c,h},Makefile Stdheader
+	autocmd! BufNewFile *.{c,h,mk},Makefile Stdheader
 augroup END
 
 " ==============================================================================

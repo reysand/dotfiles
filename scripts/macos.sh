@@ -12,21 +12,13 @@ osascript > /dev/null 2>&1 <<EOD
 	tell application "System Preferences"
 		activate
 		reveal pane "General"
-		display dialog ("General Settings") \
-			buttons "OK" default button "OK" \
-			with icon note with title "Settings"
+		delay 5
 		reveal pane "Keyboard"
-		display dialog ("Keyboard Settings") \
-			buttons "OK" default button "OK" \
-			with icon note with title "Settings"
+		delay 5
 		reveal pane "Displays"
-		display dialog ("Displays Settings") \
-			buttons "OK" default button "OK" \
-			with icon note with title "Settings"
+		delay 5
 		reveal pane "Mouse"
-		display dialog ("Mouse Settings") \
-			buttons "OK" default button "OK" \
-			with icon note with title "Settings"
+		delay 5
 	end tell
 	quit application "System Preferences"
 EOD
