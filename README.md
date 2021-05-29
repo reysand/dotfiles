@@ -5,6 +5,7 @@ Automated Configuration, Preferences and Software Installation (School 21)
 - git config --global core.pager 'less -x1,5' (set tab width 4 for git diff)
 - git config --global core.autocrlf input
 - git config --global core.safecrlf false
+- git config --global core.editor "vim"
 
 ## iTerm2 (iterm.json - Profile)
 For better experience use these settings:
