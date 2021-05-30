@@ -28,8 +28,6 @@ call plug#end()
 "                             General Configuration
 " ==============================================================================
 set colorcolumn=81							" Highlight 81 column
-set cursorcolumn							" Highlight current column
-set cursorline								" Highlight current line
 set list									" Show hidden characters
 set listchars+=extends:›					" Set extends character
 set listchars+=nbsp:·						" Set non-breakable space character
