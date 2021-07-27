@@ -1,7 +1,9 @@
-[commit]
-	gpgsign = true		# Sign commits
-[gpg]
-	program = gpg		# Default signature program
 [core]
 	pager = less -x1,5	# Set tab width 4 for git diff
 	editor = vim		# Default editor is vim
+[gpg]
+	program = gpg		# Default signature program
+[commit]
+	gpgsign = true		# Sign commits
+[pull]
+	ff = only			# fast-forward only
